@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <script>
+   self["MonacoEnvironment"] = (function (paths) {
+          return {
+            globalAPI: false,
+            getWorkerUrl : function (moduleId, label) {
+              var result =  paths[label];
+              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
+                var currentUrl = String(window.location);
+                var currentOrigin = currentUrl.substr(0, currentUrl.length - window.location.hash.length - window.location.search.length - window.location.pathname.length);
+                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
+                  var js = '/*' + label + '*/importScripts("' + result + '");';
+                  var blob = new Blob([js], { type: 'application/javascript' });
+                  return URL.createObjectURL(blob);
+                }
+              }
+              return result;
+            }
+          };
+        })({
+  "editorWorkerService": "/monacoeditorwork/editor.worker.bundle.js",
+  "typescript": "/monacoeditorwork/ts.worker.bundle.js",
+  "json": "/monacoeditorwork/json.worker.bundle.js",
+  "css": "/monacoeditorwork/css.worker.bundle.js",
+  "html": "/monacoeditorwork/html.worker.bundle.js",
+  "javascript": "/monacoeditorwork/ts.worker.bundle.js",
+  "less": "/monacoeditorwork/css.worker.bundle.js",
+  "scss": "/monacoeditorwork/css.worker.bundle.js",
+  "handlebars": "/monacoeditorwork/html.worker.bundle.js",
+  "razor": "/monacoeditorwork/html.worker.bundle.js"
+});
+  </script>
+  <!-- Runtime config — must load before Vite injects module scripts into <head> -->
+  <script src="/api/frontend-config.js">
+  </script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+   tailwind.config = { darkMode: 'class' }
+  </script>
+  <!-- Usercentrics CMP -->
+  <script type="application/javascript">
+   var isBypassEnabled = document.cookie.split(';').some(function(cookie) {
+        return cookie.trim().indexOf('no_cmp=') === 0;
+      });
+      var UC_UI_SUPPRESS_CMP_DISPLAY = isBypassEnabled;
+  </script>
+  <script async="" src="https://accounts.google.com/gsi/client">
+  </script>
+  <meta charset="utf-8"/>
+  <link href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b35b8d81599c7d69ff4666/4fff16580_logo.png" rel="icon"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="#000000" name="theme-color"/>
+  <meta content="A minimalist, distraction-free web browser designed for focused navigation and seamless content exploration." name="description"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Zenith Browser (Copy)" name="apple-mobile-web-app-title"/>
+  <link href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b35b8d81599c7d69ff4666/4fff16580_logo.png" rel="apple-touch-icon"/>
+  <link href="https://zenith-browser-copy-a48bfbbe.base44.app/manifest.json" rel="manifest"/>
+  <title>
+   login | Zenith Browser (Copy)
+  </title>
+  <!-- Open Graph / Facebook -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://zenith-browser-copy-a48bfbbe.base44.app/login?from_url=https%3A%2F%2Fzenith-browser-copy-a48bfbbe.base44.app%2FBrowser%3Fis_new_user%3Dtrue%26is_new_user%3Dtrue" property="og:url"/>
+  <meta content="login | Zenith Browser (Copy)" property="og:title"/>
+  <meta content="Zenith Browser (Copy)" property="og:site_name"/>
+  <meta content="A minimalist, distraction-free web browser designed for focused navigation and seamless content exploration." property="og:description"/>
+  <meta content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69b35b8d81599c7d69ff4666/4fff16580_logo.png?width=1200&amp;height=630&amp;resize=contain" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="Base44 link preview" property="og:image:alt"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://zenith-browser-copy-a48bfbbe.base44.app/login?from_url=https%3A%2F%2Fzenith-browser-copy-a48bfbbe.base44.app%2FBrowser%3Fis_new_user%3Dtrue%26is_new_user%3Dtrue" name="twitter:url"/>
+  <meta content="login | Zenith Browser (Copy)" name="twitter:title"/>
+  <meta content="A minimalist, distraction-free web browser designed for focused navigation and seamless content exploration." name="twitter:description"/>
+  <meta content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69b35b8d81599c7d69ff4666/4fff16580_logo.png?width=1200&amp;height=630&amp;resize=contain" name="twitter:image"/>
+  <meta content="Base44 link preview" name="twitter:image:alt"/>
+  <script crossorigin="" src="/static/index-EYDZWaDg.js" type="module">
+  </script>
+  <link crossorigin="" href="/static/vendor-ui-DEryjetz.js" rel="modulepreload"/>
+  <link crossorigin="" href="/static/vendor-monaco-kUzn8ZZg.js" rel="modulepreload"/>
+  <link crossorigin="" href="/static/vendor-utils-C349yhEA.js" rel="modulepreload"/>
+  <link crossorigin="" href="/static/vendor-data-f1yvw1eD.js" rel="modulepreload"/>
+  <link crossorigin="" href="/static/vendor-monaco-Cdw5dZYH.css" rel="stylesheet"/>
+  <link crossorigin="" href="/static/index-tezj97Pn.css" rel="stylesheet"/>
+  <meta content="noindex, nofollow" name="robots"/>
+ </head>
+ <body>
+  <noscript>
+   You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root">
+  </div>
+ </body>
+</html>
